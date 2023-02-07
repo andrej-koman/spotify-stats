@@ -3,6 +3,7 @@
   import Profile from "./components/Profile.svelte";
   import Songs from "./components/Songs.svelte";
   import Navigation from "./components/Navigation.svelte";
+  import Artists from "./components/Artists.svelte";
   import { userToken } from "./stores.js";
   import { accessToken, getCurrentUserProfile } from "./spotify";
   import { Router, Link, Route } from "svelte-navigator";
@@ -19,11 +20,12 @@
   <main>
     <Route path="/" component={Profile} />
     <Route path="/songs" component={Songs} />
+    <Route path="/artists" component={Artists} />
   </main>
   {:else}
   <div class="intro-container">
-    <h1>Spotify stats</h1>
-    <a class="login-button" href="http://localhost:3000/login">LOG IN</a>
+    <h1>Spotify Stats</h1>
+    <a class="login-button" href="http://localhost:3000/login">LOG IN TO SPOTIFY</a>
   </div>
   {/if}
 </Router>
@@ -42,25 +44,27 @@
 
   .login-button {
     appearance: button;
-    font-family: sans-serif;
+    display: inline-block;
+    background-color: rgb(29, 185, 84);
+    color: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding: 17px 35px;
+    margin: 20px 0px 70px;
+    min-width: 160px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
     text-decoration: none;
-    background-color: #1ed760;
-    color: #000000;
-    border-radius: 500px;
-    padding: 14px 32px;
-    border: black;
-    cursor: pointer;
-    font-weight: bold;
+    transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
   }
 
   .login-button:hover {
-    color: #252525;
-    box-shadow: 2px 2px #252525;
-    background-color: #20b755;
+    background-color: rgb(34, 219, 99)
   }
 
   .login-button:active {
-    color: black;
+    color: #cacaca;
     background-color: gray;
   }
 </style>

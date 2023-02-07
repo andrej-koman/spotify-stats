@@ -1,6 +1,5 @@
 <script>
   import { Link } from "svelte-navigator";
-  import { logout } from "../spotify.js";
 </script>
 
 <div class="navigation">
@@ -14,12 +13,18 @@
             <span class="nav-item-text">Profile</span>
         </div>
     </Link>
-    <Link to="/songs" style="text-decoration: none;">
+    <Link to="/artists" style="text-decoration: none;">
         <div class="nav-item">
             <i class="fa-solid fa-microphone icon"></i>
-            <span class="nav-item-text">Top artists</span>
+            <span class="nav-item-text">Top Artists</span>
         </div>
     </Link>
+    <Link to="/songs" style="text-decoration: none;">
+      <div class="nav-item">
+          <i class="fa-solid fa-music icon"></i>
+          <span class="nav-item-text">Top Tracks</span>
+      </div>
+  </Link>
   </div>
   <a href="https://github.com/andrej-koman">
     <i class="fa-brands fa-github icon" />
@@ -59,6 +64,7 @@
     cursor: pointer;
     padding-bottom: 1rem;
     color: rgb(175, 175, 175);
+    transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
   }
 
   .nav-item:hover {
@@ -73,6 +79,7 @@
   .icon {
     font-weight: 900;
     margin-top: 1rem;
+    margin-bottom: 3px;
   }
   .fa-spotify {
     color: #1ed760;
@@ -82,6 +89,11 @@
   .fa-github {
     font-size: 2rem;
     margin-bottom: 2rem;
+    color: rgb(176, 176, 176);
+  }
+
+  .fa-github:hover {
+    color: white;
   }
 
   .fa-solid {
@@ -89,6 +101,6 @@
   }
 
   .nav-item:active, .fa-github:active {
-    color:#1ed760;
+    color:rgb(176, 176, 176);
   }
 </style>
