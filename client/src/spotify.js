@@ -141,3 +141,12 @@ export const getAllTopArtists = () => {
             shortTerm: shortTerm.data.items
         })))
 };
+
+export const getAllTopTracks = () => {
+    return axios.all([getCurrentUserTopTracks("long_term", 50), getCurrentUserTopTracks("medium_term", 50), getCurrentUserTopTracks("short_term", 50)]).then(
+        axios.spread((longTerm, mediumTerm, shortTerm) => ({
+            longTerm: longTerm.data.items,
+            mediumTerm: mediumTerm.data.items,
+            shortTerm: shortTerm.data.items
+        })))
+};
