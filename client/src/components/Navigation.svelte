@@ -1,32 +1,15 @@
 <script>
-  import { Link } from "svelte-navigator";
+  import NavItem from "./NavItem.svelte";
 </script>
 
 <div class="navigation">
-  <Link to="/" style="text-decoration: none;">
-    <i class="fa-brands fa-spotify icon" />
-  </Link>
+  <NavItem to="/" iconClass="fa-brands fa-spotify" />
   <div class="navigation-middle">
-    <Link to="/" style="text-decoration: none;">
-        <div class="nav-item">
-            <i class="fa-solid fa-user icon" />
-            <span class="nav-item-text">Profile</span>
-        </div>
-    </Link>
-    <Link to="/artists" style="text-decoration: none;">
-        <div class="nav-item">
-            <i class="fa-solid fa-microphone icon"></i>
-            <span class="nav-item-text">Top Artists</span>
-        </div>
-    </Link>
-    <Link to="/songs" style="text-decoration: none;">
-      <div class="nav-item">
-          <i class="fa-solid fa-music icon"></i>
-          <span class="nav-item-text">Top Tracks</span>
-      </div>
-  </Link>
+    <NavItem to="/" iconClass="fa-solid fa-user" isMiddle>Profile</NavItem>
+    <NavItem to="/artists" iconClass="fa-solid fa-microphone" isMiddle>Top Artists</NavItem>
+    <NavItem to="/tracks" iconClass="fa-solid fa-music" isMiddle>Top Tracks</NavItem>
   </div>
-  <a href="https://github.com/andrej-koman">
+  <a href="https://github.com/andrej-koman/spotify-stats" target="_blank" rel="noreferrer" >
     <i class="fa-brands fa-github icon" />
   </a>
 </div>
@@ -54,53 +37,5 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-  }
-
-  .nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    cursor: pointer;
-    padding-bottom: 1rem;
-    color: rgb(175, 175, 175);
-    transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
-  }
-
-  .nav-item:hover {
-    background-color: rgb(0, 0, 0);
-    color: white;
-  }
-
-  .nav-item-text {
-    font-size: 0.8rem;
-  }
-
-  .icon {
-    font-weight: 900;
-    margin-top: 1rem;
-    margin-bottom: 3px;
-  }
-  .fa-spotify {
-    color: #1ed760;
-    font-size: 3rem;
-  }
-
-  .fa-github {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: rgb(176, 176, 176);
-  }
-
-  .fa-github:hover {
-    color: white;
-  }
-
-  .fa-solid {
-    font-size: 1.5rem;
-  }
-
-  .nav-item:active, .fa-github:active {
-    color:rgb(176, 176, 176);
   }
 </style>

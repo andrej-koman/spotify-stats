@@ -3,5 +3,5 @@
 </script>
 
 <Main>
-    Artists
+    Tracks
 </Main>

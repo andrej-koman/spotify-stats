@@ -1,27 +1,28 @@
 <script>
   import { onMount } from "svelte";
   import Profile from "./components/Profile.svelte";
-  import Songs from "./components/Songs.svelte";
+  import Tracks from "./components/Tracks.svelte";
   import Navigation from "./components/Navigation.svelte";
+  import NavigationMobile from "./components/NavigationMobile.svelte";
   import Artists from "./components/Artists.svelte";
-  import { userToken } from "./stores.js";
   import { accessToken, getCurrentUserProfile } from "./spotify";
   import { Router, Link, Route } from "svelte-navigator";
 
-
-  onMount(() => {
-    userToken.set(accessToken);
-  });
+  let width;
+  $: isMobile = width < 768;
 </script>
 
+<svelte:window bind:innerWidth={width}/>
 <Router>
   {#if accessToken}
-  <Navigation />
-  <main>
-    <Route path="/" component={Profile} />
-    <Route path="/songs" component={Songs} />
-    <Route path="/artists" component={Artists} />
-  </main>
+    {#if !isMobile}
+      <Navigation />
+    {:else}
+      <NavigationMobile />
+    {/if}
+  <Route path="/" component={Profile} />
+  <Route path="/tracks" component={Tracks} />
+  <Route path="/artists" component={Artists} />
   {:else}
   <div class="intro-container">
     <h1>Spotify Stats</h1>
@@ -31,9 +32,6 @@
 </Router>
 
 <style>
-  main {
-    margin-left: 100px;
-  }
   .intro-container {
     display: flex;
     justify-content: center;

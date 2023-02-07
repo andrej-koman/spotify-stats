@@ -18,7 +18,6 @@
          color: rgb(255, 255, 255);
         border: 1px solid rgb(255, 255, 255);
         border-radius: 30px;
-        margin-top: 30px;
         padding: 12px 30px;
         font-size: 12px;
         font-weight: 700;

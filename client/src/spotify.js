@@ -108,5 +108,23 @@ export const getCurrentUserProfile = () => {
 }
 
 export const getCurrentUserPlaylists = () => {
-    return axios.get("/me/playlists", {params: {imit: 50, offset: 0}});
+    return axios.get("/me/playlists", {params: {limit: 50, offset: 0}});
+}
+
+export const getCurrentUserTopArtists = (time_range, limit) => {
+    return axios.get("/me/top/artists", {params: {limit: limit, time_range: time_range}});
+}
+
+export const getCurrentUserTopTracks = (time_range, limit) => {
+    return axios.get("/me/top/tracks", {params: {time_range, limit}});
+}
+
+export const getProfileData = () => {
+    return axios.all([getCurrentUserProfile(), getCurrentUserPlaylists(), getCurrentUserTopArtists("long_term", 10), getCurrentUserTopTracks("long_term", 10)]).then(
+        axios.spread((profile, playlists, topArtists, topTracks) => ({
+            user: profile.data,
+            playlists: playlists.data,
+            topArtists: topArtists.data,
+            topTracks: topTracks.data
+        })))
 }

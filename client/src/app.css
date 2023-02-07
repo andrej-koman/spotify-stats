@@ -81,6 +81,76 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
+* {
+  box-sizing: border-box;
+}
+/* Scrollbar */
+main {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
 body {
-  overflow: hidden;
+  overflow-y: scroll;
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(237, 231, 225, 0.1);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(237, 231, 225, 0.2);
+}
+
+/* Icons */
+.fa-spotify {
+  color: #1ed760;
+  font-size: 3rem;
+}
+
+.fa-github {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: rgb(176, 176, 176);
+}
+
+.fa-github:hover {
+  color: white;
+}
+
+.fa-solid {
+  font-size: 1.5rem;
+}
+
+.nav-item:active, .fa-github:active {
+  color:rgb(176, 176, 176);
+}
+
+@media (max-width: 768px) {
+  .fa-github {
+    font-size: 2rem;
+    margin-top: 15px;
+  }
+  main {
+    margin: 0px !important;
+  }
+  body {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  ::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+  }
 }
