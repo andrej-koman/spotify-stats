@@ -3,6 +3,7 @@
   import Profile from "./components/Profile.svelte";
   import Tracks from "./components/Tracks.svelte";
   import Navigation from "./components/Navigation.svelte";
+  import Recent from "./components/Recent.svelte";
   import NavigationMobile from "./components/NavigationMobile.svelte";
   import Artists from "./components/Artists.svelte";
   import { accessToken, getCurrentUserProfile } from "./spotify";
@@ -23,6 +24,7 @@
   <Route path="/" component={Profile} />
   <Route path="/tracks" component={Tracks} />
   <Route path="/artists" component={Artists} />
+  <Route path="/recent" component={Recent} />
   {:else}
   <div class="intro-container">
     <h1>Spotify Stats</h1>

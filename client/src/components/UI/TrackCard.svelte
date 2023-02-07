@@ -54,6 +54,7 @@
     width: auto;
     margin-bottom: 5px;
     border-bottom: 1px solid transparent;
+    color: white;
   }
   .track-artist-album {
     overflow: hidden;

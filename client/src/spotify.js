@@ -128,3 +128,16 @@ export const getProfileData = () => {
             topTracks: topTracks.data
         })))
 }
+
+export const getRecentlyPlayed = () => {
+    return axios.get("/me/player/recently-played", {params: {before: Date.now(), limit: 20}});
+};
+
+export const getAllTopArtists = () => {
+    return axios.all([getCurrentUserTopArtists("long_term", 50), getCurrentUserTopArtists("medium_term", 50), getCurrentUserTopArtists("short_term", 50)]).then(
+        axios.spread((longTerm, mediumTerm, shortTerm) => ({
+            longTerm: longTerm.data.items,
+            mediumTerm: mediumTerm.data.items,
+            shortTerm: shortTerm.data.items
+        })))
+};

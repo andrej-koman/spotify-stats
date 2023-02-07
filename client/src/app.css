@@ -153,4 +153,7 @@ body {
   ::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
   }
+  .loader {
+    margin-left: 0px !important;
+  }
 }

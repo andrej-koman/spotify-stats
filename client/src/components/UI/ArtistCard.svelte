@@ -43,5 +43,6 @@
   }
   .artist-name {
     width: auto;
+    color: white;
   }
 </style>

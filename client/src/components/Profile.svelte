@@ -12,14 +12,12 @@
   onMount(() => {
     getProfileData().then((data) => {
       profileData = data;
-      console.log(profileData);
     });
   });
 </script>
 
 <Main>
   {#if profileData}
-  <div class="profile-container">
     <header class="profile-header">
       <img
         src={profileData.user.images[0].url}
@@ -77,22 +75,12 @@
         {/each}
       </div>
     </section>
-  </div>
   {:else}
   <Loader />
   {/if}
 </Main>
 
 <style>
-  .profile-container {
-    padding: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0px auto;
-    max-width: 1400px;
-    min-height: 100vh;
-  }
   .profile-header {
     display: flex;
     flex-direction: column;

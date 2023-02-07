@@ -46,4 +46,7 @@
     margin-top: 1rem;
     margin-bottom: 3px;
   }
+  .nav-item > .icon {
+    font-size: 20px;
+  }
 </style>
