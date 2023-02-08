@@ -11,7 +11,7 @@
     "client/node_modules"
   ],
   "scripts": {
-    "start": "nodex index.js",
+    "start": "node index.js",
     "server": "nodemon index.js",
     "client": "cd client && npm run dev",
     "postinstall": "cd client && npm install",
