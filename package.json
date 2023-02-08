@@ -11,7 +11,7 @@
     "client/node_modules"
   ],
   "scripts": {
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "nodex index.js",
     "server": "nodemon index.js",
     "client": "cd client && npm run dev",
     "postinstall": "cd client && npm install",
