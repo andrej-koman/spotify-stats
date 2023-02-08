@@ -1,17 +1,32 @@
 <script>
+    import {createEventDispatcher} from "svelte";
+    import { v4 as uuidv4 } from 'uuid';
     import {Link} from "svelte-navigator";
     export let to = "";
     export let iconClass = "";
     export let isMiddle = false;
+    export let isActive = false;
 
+    const dispatch = createEventDispatcher();
+    const id = uuidv4();
+    let navItemClass = "nav-item";
+    $: if (isActive) {
+        navItemClass = navItemClass + " active";
+    } else {
+        navItemClass = navItemClass.replace(" active", "");
+    }
     iconClass = iconClass + " icon";
+
+    const handleClick = (e) => {
+        dispatch("toggle-active", document.getElementById(id).innerHTML);
+    };
 </script>
 
 {#if isMiddle}
-<Link {to} style="text-decoration: none;" >
-    <div class="nav-item">
+<Link {to} style="text-decoration: none;">
+    <div class={navItemClass} on:click={handleClick} on:keydown={handleClick}>
         <i class={iconClass}></i>
-        <span class="nav-item-text"><slot /></span>
+        <span class="nav-item-text" id={id}><slot /></span>
     </div>
 </Link>
 {:else}
@@ -48,5 +63,9 @@
   }
   .nav-item > .icon {
     font-size: 20px;
+  }
+  .active {
+    background-color: rgb(0, 0, 0);
+    color: white;
   }
 </style>

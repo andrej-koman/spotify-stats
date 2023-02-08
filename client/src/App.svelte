@@ -2,15 +2,16 @@
   import { onMount } from "svelte";
   import Profile from "./components/Profile.svelte";
   import Tracks from "./components/Tracks.svelte";
-  import Navigation from "./components/Navigation.svelte";
+  import Navigation from "./components/Navigation/Navigation.svelte";
   import Recent from "./components/Recent.svelte";
-  import NavigationMobile from "./components/NavigationMobile.svelte";
+  import NavigationMobile from "./components/Navigation/NavigationMobile.svelte";
   import Artists from "./components/Artists.svelte";
-  import { accessToken, getCurrentUserProfile } from "./spotify";
-  import { Router, Link, Route } from "svelte-navigator";
+  import { accessToken } from "./spotify";
+  import { Router, Route } from "svelte-navigator";
 
   let width;
   $: isMobile = width < 768;
+  
 </script>
 
 <svelte:window bind:innerWidth={width}/>
@@ -21,10 +22,10 @@
     {:else}
       <NavigationMobile />
     {/if}
-  <Route path="/" component={Profile} />
-  <Route path="/tracks" component={Tracks} />
-  <Route path="/artists" component={Artists} />
-  <Route path="/recent" component={Recent} />
+  <Route path="/" component={Profile} primary={false} />
+  <Route path="/tracks" component={Tracks} primary={false} />
+  <Route path="/artists" component={Artists} primary={false} />
+  <Route path="/recent" component={Recent} primary={false} />
   {:else}
   <div class="intro-container">
     <h1>Spotify Stats</h1>
