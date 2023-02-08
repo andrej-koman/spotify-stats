@@ -4,13 +4,16 @@ const querystring = require('querystring');
 const axios = require('axios');
 require('dotenv').config();
 const cors = require('cors');
+const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
+const FRONTEND_URI = process.env.FRONTEND_URI;
 
 app.use(cors());
+app.use(express.static(path.resolve(__dirname, './client/dist')));
 
 app.get("/login", (req, res) => {
   const queryParams = querystring.stringify({
@@ -49,7 +52,7 @@ app.get('/callback', (req, res) => {
           expires_in,
         });
 
-        res.redirect(`http://localhost:5173/?${queryParams}`);
+        res.redirect(`${FRONTEND_URI}/?${queryParams}`);
 
       } else {
         res.redirect('/#' +
@@ -84,6 +87,10 @@ app.get("/refresh_token", (req, res) => {
     .catch(error => {
       res.send(error);
     });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './client/dist', 'index.html'));
 });
 
 app.listen(PORT, () => {

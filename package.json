@@ -3,11 +3,20 @@
   "version": "1.0.0",
   "description": "An app to see your spotify stats",
   "main": "index.js",
+  "engine": {
+    "node": "16.18.0"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
   "scripts": {
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "server": "nodemon index.js",
     "client": "cd client && npm run dev",
-    "postinstall": "cd client && npm install"
+    "postinstall": "cd client && npm install",
+    "build": "cd client && npm install && npm run build",
+    "start-server": "node index.js"
   },
   "author": "Andrej Koman",
   "license": "ISC",

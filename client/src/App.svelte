@@ -9,6 +9,8 @@
   import { accessToken } from "./spotify";
   import { Router, Route } from "svelte-navigator";
 
+  const LOGIN_URI = process.env.NODE_ENV === 'production' ? 'https://spotify-stats-app.herokuapp.com/login' : 'http://localhost:3000/login';
+
   let width;
   $: isMobile = width < 768;
   
@@ -29,7 +31,7 @@
   {:else}
   <div class="intro-container">
     <h1>Spotify Stats</h1>
-    <a class="login-button" href="http://localhost:3000/login">LOG IN TO SPOTIFY</a>
+    <a class="login-button" href={LOGIN_URI}>LOG IN TO SPOTIFY</a>
   </div>
   {/if}
 </Router>
