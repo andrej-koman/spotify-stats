@@ -78,4 +78,10 @@
     color: rgb(155, 155, 155);
     font-size: 14px;
   }
+
+  .track-left {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 </style>

@@ -40,6 +40,7 @@
     fetchArtists().then(() => {
       currentArtists = allArtists.longTerm;
     });
+    window.scrollTo(0, 0);
   });
 </script>
 

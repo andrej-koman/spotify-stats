@@ -24,5 +24,6 @@
     bottom: 0px;
     z-index: 99;
     justify-content: space-around;
+    align-items: center;
   }
 </style>

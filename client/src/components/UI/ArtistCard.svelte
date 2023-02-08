@@ -22,6 +22,9 @@
     flex-direction: row;
     cursor: pointer;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .artist-card:hover {

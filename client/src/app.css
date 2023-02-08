@@ -139,10 +139,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .fa-github {
-    font-size: 2rem;
-    margin-top: 15px;
-  }
   main {
     margin: 0px !important;
   }
@@ -158,5 +154,13 @@ body {
   }
   .loader {
     margin-left: 0px !important;
+  }
+  .fa-spotify {
+    padding-bottom: 15px;
+    font-size: 40px;
+  }
+  .fa-github {
+    font-size: 35px;
+    margin-bottom: 0px;
   }
 }

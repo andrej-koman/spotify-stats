@@ -41,6 +41,7 @@
     fetchTracks().then(() => {
         currentTracks = allTracks.longTerm;
     });
+    window.scrollTo(0, 0);
   });
 </script>
 
