@@ -1,7 +1,6 @@
 <script>
   import NavItem from "./NavItem.svelte";
   import NavigationMiddle from "./NavigationMiddle.svelte";
-
 </script>
 
 <div class="navigation">
