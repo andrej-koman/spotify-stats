@@ -11,12 +11,10 @@
     "client/node_modules"
   ],
   "scripts": {
-    "start": "node index.js",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "server": "nodemon index.js",
     "client": "cd client && npm run dev",
-    "postinstall": "cd client && npm install",
-    "build": "cd client && npm install && npm run build",
-    "start-server": "node index.js"
+    "postinstall": "cd client && npm install"
   },
   "author": "Andrej Koman",
   "license": "ISC",
