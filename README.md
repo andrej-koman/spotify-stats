@@ -1,5 +1,6 @@
 # spotify-stats
 >An app that allows you to view ur spotify statistics. Built with Express on the server side and Svelte on client side.
+![image](https://user-images.githubusercontent.com/97840968/217775268-77c78727-9695-4bf6-ae58-edbe8a130d83.png)
 
 ## Setup
 1. Register a [Spotify app](https://developer.spotify.com/dashboard/) and add http://localhost:3000/callback to its callback urls (**Make sure to save the settings!**)
