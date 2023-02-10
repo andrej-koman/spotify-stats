@@ -18,3 +18,4 @@ npm install
 ```
 npm start
 ```
+4. Open your browser and go to url http://localhost:5173/
