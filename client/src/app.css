@@ -1,166 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
-
-/* "./public/fonts/ */
-@font-face {
-  font-family: 'Circular Std';
-  src: local('Circular Std Medium'), local('CircularStd-Medium'),
-  url('./public/fonts/CircularStd-Medium.woff2') format('woff2'),
-  url('./public/fonts/CircularStd-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
+.intro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
-@font-face {
-  font-family: 'Circular Std';
-  src: local('Circular Std Book'), local('CircularStd-Book'),
-  url('./public/fonts/CircularStd-Book.woff2') format('woff2'),
-  url('./public/fonts/CircularStd-Book.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Circular Std';
-  src: local('Circular Std Medium Italic'), local('CircularStd-MediumItalic'),
-  url('./public/fonts/CircularStd-MediumItalic.woff2') format('woff2'),
-  url('./public/fonts/CircularStd-MediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Circular Std';
-  src: local('Circular Std Black'), local('CircularStd-Black'),
-  url('./public/fonts/CircularStd-Black.woff2') format('woff2'),
-  url('./public/fonts/CircularStd-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Circular Std';
-  src: local('Circular Std Bold'), local('CircularStd-Bold'),
-  url('./public/fonts/CircularStd-Bold.woff2') format('woff2'),
-  url('./public/fonts/CircularStd-Bold.woff') format('woff');
+.login-button {
+  appearance: button;
+  display: inline-block;
+  background-color: rgb(29, 185, 84);
+  color: rgb(255, 255, 255);
+  border-radius: 30px;
+  padding: 17px 35px;
+  margin: 20px 0px 70px;
+  min-width: 160px;
   font-weight: 700;
-  font-style: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
 }
-@font-face {
-  font-family: 'Circular Std';
-  src: local('Circular Std Bold Italic'), local('CircularStd-BoldItalic'),
-  url('./public/fonts/CircularStd-BoldItalic.woff2') format('woff2'),
-  url('./public/fonts/CircularStd-BoldItalic.woff') format('woff');
-  font-weight: 700;
-  font-style: italic;
+.login-button:hover {
+  background-color: rgb(34, 219, 99)
 }
-@font-face {
-  font-family: 'Circular Std';
-  src: local('Circular Std Book Italic'), local('CircularStd-BookItalic'),
-  url('./public/fonts/CircularStd-BookItalic.woff2') format('woff2'),
-  url('./public/fonts/CircularStd-BookItalic.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Circular Std';
-  src: local('Circular Std Black Italic'), local('CircularStd-BlackItalic'),
-  url('./public/fonts/CircularStd-BlackItalic.woff2') format('woff2'),
-  url('./public/fonts/CircularStd-BlackItalic.woff') format('woff');
-  font-weight: 900;
-  font-style: italic;
-}
-:root {
-  font-family: "Circular Std", 'Open Sans';
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #1a1a1a;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-
-* {
-  box-sizing: border-box;
-}
-/* Scrollbar */
-main {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-}
-body {
-  overflow-y: scroll;
-}
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 20px;
-  height: 20px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(237, 231, 225, 0.1);
-  border-radius: 20px;
-  border: 6px solid transparent;
-  background-clip: content-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(237, 231, 225, 0.2);
-}
-
-/* Icons */
-.fa-spotify {
-  color: #1ed760;
-  font-size: 3rem;
-}
-
-.fa-github {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: rgb(176, 176, 176);
-}
-
-.fa-github:hover {
-  color: white;
-}
-
-.fa-solid {
-  font-size: 1.5rem;
-}
-
-.nav-item:active, .fa-github:active {
-  color:rgb(176, 176, 176);
-}
-
-@media (max-width: 768px) {
-  main {
-    margin: 0px !important;
-  }
-  .main-container {
-    padding: 10px !important;
-  }
-  body {
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-  }
-  ::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
-  }
-  .loader {
-    margin-left: 0px !important;
-  }
-  .fa-spotify {
-    padding-bottom: 18px;
-    font-size: 40px;
-  }
-  .fa-github {
-    font-size: 35px;
-    margin-bottom: 10px;
-  }
+.login-button:active {
+  color: #cacaca;
+  background-color: gray;
 }
