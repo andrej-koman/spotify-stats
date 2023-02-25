@@ -15,8 +15,6 @@ const LOCALSTORAGE_VALUES = {
 }
 
 
-
-
 const hasTokenExpired = () => {
     const { accessToken, timestamp, expireTime } = LOCALSTORAGE_VALUES;
 
@@ -46,11 +44,6 @@ const refreshToken = async () => {
         console.error(e);
     }
 };
-/**
- * Handles logic for retrieving the Spotify access token from localStorage
- * or URL query params
- * @returns {string} A Spotify access token
- */
 
 const getAccessToken = () => {
     const queryString = window.location.search;

@@ -13,7 +13,6 @@ const REDIRECT_URI = process.env.REDIRECT_URI;
 const FRONTEND_URI = process.env.FRONTEND_URI;
 
 app.use(cors());
-app.use(express.static(path.resolve(__dirname, './client/dist')));
 
 app.get("/login", (req, res) => {
   const queryParams = querystring.stringify({
