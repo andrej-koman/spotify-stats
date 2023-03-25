@@ -77,7 +77,7 @@
       </div>
     </section>
   {:else}
-  <Loader />
+    <Loader />
   {/if}
 </Main>
 

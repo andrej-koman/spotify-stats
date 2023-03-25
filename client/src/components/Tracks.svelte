@@ -27,19 +27,19 @@
 
   const toggleItem = (e) => {
     if (e.detail === "All time") {
-        currentTracks = allTracks.longTerm;
+      currentTracks = allTracks.longTerm;
     }
     if (e.detail === "6 months") {
-        currentTracks = allTracks.mediumTerm;
+      currentTracks = allTracks.mediumTerm;
     }
     if (e.detail === "4 weeks") {
-        currentTracks = allTracks.shortTerm;
+      currentTracks = allTracks.shortTerm;
     }
   };
 
   onMount(() => {
     fetchTracks().then(() => {
-        currentTracks = allTracks.longTerm;
+      currentTracks = allTracks.longTerm;
     });
     window.scrollTo(0, 0);
   });
@@ -47,19 +47,17 @@
 
 <Top {toggleItem} {toggleSwitch} title="Top Tracks" {currentlyActive}>
   {#if currentTracks}
-  {#each currentTracks as track (track.id)}
-    <TrackCard
-    src={track.album.images[0].url}
-    name={track.name}
-    link={track.external_urls.spotify}
-    duration={formatDuration(track.duration_ms)}
-    album={track.album.name}
-    artist={track.artists[0].name}
-    />
-  {/each}
-{:else}
-  <Loader />
-{/if}
+    {#each currentTracks as track (track.id)}
+      <TrackCard
+        src={track.album.images[0].url}
+        name={track.name}
+        link={track.external_urls.spotify}
+        duration={formatDuration(track.duration_ms)}
+        album={track.album.name}
+        artist={track.artists[0].name}
+      />
+    {/each}
+  {:else}
+    <Loader />
+  {/if}
 </Top>
-
-

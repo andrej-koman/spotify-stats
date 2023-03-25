@@ -14,9 +14,6 @@ const LOCALSTORAGE_VALUES = {
     timestamp: localStorage.getItem(LOCALSTORAGE_KEYS.timestamp)
 }
 
-
-
-
 const hasTokenExpired = () => {
     const { accessToken, timestamp, expireTime } = LOCALSTORAGE_VALUES;
 

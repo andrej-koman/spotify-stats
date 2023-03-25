@@ -1,38 +1,38 @@
 <script>
-    import {createEventDispatcher} from "svelte";
-    import { v4 as uuidv4 } from 'uuid';
-    import {Link} from "svelte-navigator";
-    export let to = "";
-    export let iconClass = "";
-    export let isMiddle = false;
-    export let isActive = false;
+  import { createEventDispatcher } from "svelte";
+  import { v4 as uuidv4 } from "uuid";
+  import { Link } from "svelte-navigator";
+  export let to = "";
+  export let iconClass = "";
+  export let isMiddle = false;
+  export let isActive = false;
 
-    const dispatch = createEventDispatcher();
-    const id = uuidv4();
-    let navItemClass = "nav-item";
-    $: if (isActive) {
-        navItemClass = navItemClass + " active";
-    } else {
-        navItemClass = navItemClass.replace(" active", "");
-    }
-    iconClass = iconClass + " icon";
+  const dispatch = createEventDispatcher();
+  const id = uuidv4();
+  let navItemClass = "nav-item";
+  $: if (isActive) {
+    navItemClass = navItemClass + " active";
+  } else {
+    navItemClass = navItemClass.replace(" active", "");
+  }
+  iconClass = iconClass + " icon";
 
-    const handleClick = (e) => {
-        dispatch("toggle-active", document.getElementById(id).innerHTML);
-    };
+  const handleClick = (e) => {
+    dispatch("toggle-active", document.getElementById(id).innerHTML);
+  };
 </script>
 
 {#if isMiddle}
-<Link {to} style="text-decoration: none;">
+  <Link {to} style="text-decoration: none;">
     <div class={navItemClass} on:click={handleClick} on:keydown={handleClick}>
-        <i class={iconClass}></i>
-        <span class="nav-item-text" id={id}><slot /></span>
+      <i class={iconClass} />
+      <span class="nav-item-text" {id}><slot /></span>
     </div>
-</Link>
+  </Link>
 {:else}
-<Link {to} style="text-decoration: none;" >
-    <i class={iconClass}></i>
-</Link>
+  <Link {to} style="text-decoration: none;">
+    <i class={iconClass} />
+  </Link>
 {/if}
 
 <style>
