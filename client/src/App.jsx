@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import { getProfileData, logout } from './spotify';
-import { useEffect } from 'react';
-import './App.css';
+import { useState, useEffect } from "react";
+import Profile from "./components/Profile.jsx";
+import { accessToken } from "./spotify";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './app.css';
 
-function App() {
-  const [user, setUser] = useState({});
-  const profile = getProfileData();
+const App = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+
   useEffect(() => {
-    profile.then((data) => {
-      setUser(data)
-    })
-  }, [])
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
-  if (user) {
-    return (
-      <div className="main-container">
-        <h1>Spotify Stats</h1>
-        <h2>Welcome, {user.user.display_name}</h2>
-        <img src={user.user.images[0].url} alt="user profile" />
-        <button onClick={logout}>LOG OUT</button>
-      </div>
-    )
-  }
-  else {
-    return (
-      <div className="intro-container">
-        <h1>Spotify Stats</h1>
-        <a className="login-button" href="http://localhost:3000/login">LOG IN TO SPOTIFY</a>
-      </div>
-    )
-  }
+  const isMobile = width < 768;
+
+  return (
+    <>
+      <BrowserRouter>
+        {accessToken ? (
+          <Routes>
+            <Route path="/" exact Component={Profile} />
+          </Routes>
+        )
+          : (
+            <div className="intro-container">
+              <h1>Spotify Stats</h1>
+               <a href="http://localhost:8000/login" className="login-button">
+                LOG IN TO SPOTIFY
+               </a>
+            </div>
+          )}
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App

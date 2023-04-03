@@ -1,0 +1,69 @@
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.profile-display-name {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: white;
+  transition: all 0.25s cubic-bezier(0.3, 0, 0.4, 1) 0s;
+  text-decoration: none;
+}
+.profile-display-name:hover {
+  color: rgb(29, 185, 84);
+  cursor: pointer;
+}
+.profile-stat-number {
+  color: rgb(29, 185, 84);
+  font-size: 20px;
+}
+.profile-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.profile-stats {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+}
+.profile-stat-name {
+  color: rgb(155, 155, 155);
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+.profile-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  width: 100%;
+  margin-top: 100px;
+}
+.profile-content-artists {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  grid-column: 1;
+}
+.profile-content-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 900px) {
+  .profile-content {
+    grid-template-columns: 1fr;
+  }
+}
