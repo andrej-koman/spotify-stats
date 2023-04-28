@@ -2,6 +2,7 @@ import Profile from "./components/Profile.jsx";
 import { accessToken } from "./spotify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
+import Tracks from "./components/Tracks";
 import "./app.css";
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
             <Routes>
               <Route path="/" exact Component={Profile} />
               <Route path="/artists" exact Component={Profile} />
-              <Route path="/tracks" exact Component={Profile} />
+              <Route path="/tracks" exact Component={Tracks} />
               <Route path="/recent" exact Component={Profile} />
             </Routes>
           </>

@@ -1,6 +1,7 @@
 import React from "react";
 import Main from "./UI/Main";
 import RangeButton from "./UI/RangeButton";
+import "./Top.css";
 
 function Top({ title, currentlyActive, toggleSwitch, toggleItem, children }) {
   return (
