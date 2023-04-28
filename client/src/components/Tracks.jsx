@@ -10,18 +10,18 @@ function Tracks() {
   const [allTracks, setAllTracks] = useState(null);
   const [currentTracks, setCurrentTracks] = useState(null);
 
-  const toggleSwitch = (e) => {
-    if (currentlyActive !== e.detail) {
-      setCurrentlyActive(e.detail);
+  const toggleSwitch = (item) => {
+    if (currentlyActive !== item) {
+      setCurrentlyActive(item);
     }
   };
 
-  const toggleItem = (e) => {
-    if (e.detail === "All time") {
+  const toggleItem = (item) => {
+    if (item === "All time") {
       setCurrentTracks(allTracks.longTerm);
-    } else if (e.detail === "6 months") {
+    } else if (item === "6 months") {
       setCurrentTracks(allTracks.mediumTerm);
-    } else if (e.detail === "4 weeks") {
+    } else if (item === "4 weeks") {
       setCurrentTracks(allTracks.shortTerm);
     }
   };
@@ -61,4 +61,4 @@ function Tracks() {
   );
 }
 
-export default Tracks;
+export default Tracks ;
