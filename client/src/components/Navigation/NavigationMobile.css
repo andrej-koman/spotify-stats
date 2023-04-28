@@ -1,0 +1,12 @@
+.navigation {
+    box-shadow: rgb(0 0 0 / 30%) 0px 0px 10px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    background-color: black;
+    left: 0px;
+    bottom: 0px;
+    z-index: 99;
+    justify-content: space-around;
+    align-items: center;
+}
