@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Profile from "./components/Profile.jsx";
 import { accessToken } from "./spotify";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -6,18 +5,6 @@ import Navigation from "./components/Navigation/Navigation";
 import "./app.css";
 
 const App = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  const isMobile = width < 768;
-
   return (
     <>
       <BrowserRouter>
@@ -26,6 +13,9 @@ const App = () => {
             <Navigation />
             <Routes>
               <Route path="/" exact Component={Profile} />
+              <Route path="/artists" exact Component={Profile} />
+              <Route path="/tracks" exact Component={Profile} />
+              <Route path="/recent" exact Component={Profile} />
             </Routes>
           </>
         ) : (
