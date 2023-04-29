@@ -1,6 +1,7 @@
 import React from "react";
 import Main from "./UI/Main";
 import RangeButton from "./UI/RangeButton";
+import "./Top.css";
 
 function Top({ title, currentlyActive, toggleSwitch, toggleItem, children }) {
   return (
@@ -12,21 +13,21 @@ function Top({ title, currentlyActive, toggleSwitch, toggleItem, children }) {
             <RangeButton
               active={currentlyActive === "All time"}
               onToggleSwitch={toggleSwitch}
-              onToggleItems={toggleItem}
+              onToggleItems={() => {toggleItem("All time")}}
             >
               All time
             </RangeButton>
             <RangeButton
               active={currentlyActive === "6 months"}
               onToggleSwitch={toggleSwitch}
-              onToggleItems={toggleItem}
+              onToggleItems={() => {toggleItem("6 months")}}
             >
               6 months
             </RangeButton>
             <RangeButton
               active={currentlyActive === "4 weeks"}
               onToggleSwitch={toggleSwitch}
-              onToggleItems={toggleItem}
+              onToggleItems={() => {toggleItem("4 weeks")}}
             >
               4 weeks
             </RangeButton>

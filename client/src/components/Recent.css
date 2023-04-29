@@ -1,0 +1,11 @@
+.recently-played {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.recently-played > span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+}
