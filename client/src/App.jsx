@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Tracks from "./components/Tracks";
 import Artists from "./components/Artists";
 import Profile from "./components/Profile.jsx";
+import Recent from "./components/Recent";
 
 import "./app.css";
 
@@ -18,7 +19,7 @@ const App = () => {
               <Route path="/" exact Component={Profile} />
               <Route path="/artists" exact Component={Artists} />
               <Route path="/tracks" exact Component={Tracks} />
-              <Route path="/recent" exact Component={Profile} />
+              <Route path="/recent" exact Component={Recent} />
             </Routes>
           </>
         ) : (
